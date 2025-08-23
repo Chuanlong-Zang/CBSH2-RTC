@@ -1,6 +1,6 @@
 project(cbs)
 
-cmake_minimum_required (VERSION 2.6)
+cmake_minimum_required (VERSION 3.5)
 
 IF(NOT CMAKE_BUILD_TYPE)
     SET(CMAKE_BUILD_TYPE "RELEASE")
@@ -13,7 +13,7 @@ file(GLOB SOURCES "src/*.cpp")
 add_executable(cbs ${SOURCES})
 
 # Find Boost
-find_package(Boost REQUIRED COMPONENTS program_options system filesystem)
+find_package(Boost REQUIRED COMPONENTS program_options filesystem)
 include_directories( ${Boost_INCLUDE_DIRS} )
 target_link_libraries(cbs ${Boost_LIBRARIES})
 
