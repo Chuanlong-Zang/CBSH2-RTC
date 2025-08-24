@@ -538,6 +538,18 @@ void CBS::printPaths() const
 }
 
 
+
+std::vector<Path> CBS::getPaths() const
+{
+	std::vector<Path> out;
+	out.reserve(paths.size());
+	for (const auto* p : paths) {
+		if (p) out.push_back(*p);
+		else   out.emplace_back(); // keep alignment if a path pointer is null
+	}
+	return out;
+}
+
 // adding new nodes to FOCAL (those with min-f-val*f_weight between the old and new LB)
 void CBS::updateFocalList()
 {

@@ -68,6 +68,8 @@ public:
 	void clearSearchEngines();
 	~CBS();
 
+	std::vector<Path> getPaths() const;
+
 	// Save results
 	void saveResults(const string &fileName, const string &instanceName) const;
 	void saveStats(const string &fileName, const string &instanceName) const;
